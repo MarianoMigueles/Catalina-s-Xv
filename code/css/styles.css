@@ -1,0 +1,247 @@
+:root {
+
+    /*Tipografy*/
+    --ff-jacquesfrancoisshadow: 'Jacques Francois Shadow', cursiva;
+    --ff-italianno: 'Italianno', regular;
+    --ff-playball: 'Playball', sans-serif;
+
+    --ff-patuaone: 'Patua One', cursive; 
+    --ff-oswald: 'Oswald', regular;
+
+    /*Font Weight*/
+    --fw-regular: 400;
+    --fw-light: 300;
+
+    /*Fonts Size*/
+    --fs-xxlarge: clamp(8rem, 20vw, 18rem);
+    --fs-xlarge: clamp(3.5rem, 15vw, 10rem);
+    --fs-large: clamp(3.5rem, 10vw, 6rem);
+    --fs-medium: clamp(2rem, 5vw, 3rem);
+    --fs-small: clamp(0.5rem, 3vw, 1rem);
+
+    /*Colors*/
+    --clr-text-primary: #EDAAA6;
+    --clr-text-secondary: #eda9a680;
+    --clr-bg-page: #FFFFFF;
+    --clr-bg-container: #F5F5EB;
+    --clr-bg-container-secondary: #FBD0C9;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+
+    background-image: url(../assets/images/page-background.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+header {
+
+}
+
+main {
+    width: 100%;
+    height: 100%;
+
+    flex-direction: column;
+    gap: 5em;
+}
+
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-content-container {
+    width: 100%;
+    height: 80vh;
+    /*temporal*/
+    /*border: #0D0D0D solid 3px;*/
+}
+
+.page-content-container:nth-of-type(1) {
+    height: 100vh;
+}
+
+.page-hero-container {
+    position: relative;
+    margin: 1em 0;
+}
+
+.page-hero-container::before,
+    .page-hero-container::after {
+        content: "";
+        position: absolute;
+        background-color: var(--clr-bg-container-secondary);
+        width: 100%;
+        height: 1em;
+        z-index: -1;
+}
+
+.page-hero-container::before {
+    top: -1em;
+}
+
+.page-hero-container::after {
+    bottom: -1em;
+}
+
+.hero-content {
+    background-color: var(--clr-bg-container);
+}
+
+.hero-content::before,
+    .hero-content::after {
+        content: "";
+        position: absolute;
+        background-image: url(../assets/images/hero-images-flowers.webp);
+        background-repeat: no-repeat;
+        background-size: clamp(250px, 50vw, 400px);
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+}
+
+.hero-content::before {
+    top: 0;
+    left: 0;
+}
+
+.hero-content::after {
+    bottom: 0;
+    right: 0;
+    rotate: 180deg;
+}
+
+/*----------------------------------------------------------------------------------------*/
+/*Hero Section*/
+/*----------------------------------------------------------------------------------------*/
+
+.page-hero-container:nth-of-type(1) {
+    margin-top: 0;
+}
+
+.celebrant-content {
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+    
+    font-family: var(--ff-italianno);
+    font-size: var(--fs-xlarge);
+    color: var(--clr-text-primary);
+}
+
+.event-label {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.event-number-container {
+    position: relative;
+}
+
+.event-year {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.celebrant-name {
+    text-align: center;
+    font-weight: var(--fw-light);
+    font-size: var(--fs-xxlarge);
+    line-height: 50%;
+}
+
+.event-number {
+    font-family: var(--ff-jacquesfrancoisshadow);
+    color: var(--clr-text-secondary);
+    text-transform: uppercase;
+    font-weight: var(--fw-light);
+}
+
+/*----------------------------------------------------------------------------------------*/
+/*Date Section*/
+/*----------------------------------------------------------------------------------------*/
+
+.date-container {
+    width: clamp(20em, 80vw, 30em);
+    height: clamp(20em, 80vw, 30em);
+
+    flex-direction: column;
+    gap: 3em;
+
+    border-radius: 100px;
+    background-color: var(--clr-bg-container);
+
+    text-align: center;
+    color: var(--clr-text-primary);
+
+    padding: 3em;
+}
+
+.date-container h1 {
+    font-size: var(--fs-large);
+    font-family: var(--ff-italianno);
+}
+
+.calendar-date {
+    justify-content: space-between;
+    font-family: var(--ff-patuaone);
+    font-size: var(--fs-medium);
+}
+
+.vertical-divider {
+    width: 0.1em;
+    height: 1.2em;
+    min-width: 5px;
+
+    background-color: var(--clr-text-primary);
+}
+
+.clock-container {
+    font-size: var(--fs-medium);
+    width: 80%;
+}
+
+.clock-icon {
+    width: 1.5em;
+}
+
+.time-indicator-container {
+    width: 100%;
+    justify-content: space-between;
+    font-family: var(--ff-patuaone);
+}
+
+.time-indicator {
+    flex-direction: column;
+}
+
+.time-indicator > span {
+    font-family: var(--ff-oswald);
+    font-weight: var(--fw-light);
+    text-transform: uppercase;
+    font-size: var(--fs-small);
+}
+
+/*----------------------------------------------------------------------------------------*/
+/*Location Section*/
+/*----------------------------------------------------------------------------------------*/
+
+.location-container {
+    width: 100%;
+    height: 100%;
+}
