@@ -17,14 +17,18 @@
     --fs-xlarge: clamp(3.5rem, 15vw, 10rem);
     --fs-large: clamp(3.5rem, 10vw, 6rem);
     --fs-medium: clamp(2rem, 5vw, 3rem);
+    --fs-regular: clamp(1.2rem, 4vw, 2rem);
     --fs-small: clamp(0.5rem, 3vw, 1rem);
 
     /*Colors*/
     --clr-text-primary: #EDAAA6;
     --clr-text-secondary: #eda9a680;
+    --clr-text-tertiary: #F5F5EB;
+    --clr-btn-background: #EDAAA6;
     --clr-bg-page: #FFFFFF;
     --clr-bg-container: #F5F5EB;
-    --clr-bg-container-secondary: #FBD0C9;
+    --clr-bg-container-primary: #FBD0C9;
+    --clr-bg-background-secondary: #EDAAA6;
 }
 
 * {
@@ -40,6 +44,7 @@ body {
     background-image: url(../../assets/images/page-background.webp);
     background-repeat: no-repeat;
     background-size: cover;  
+    z-index: -1;
 }
 
 header {
@@ -52,6 +57,11 @@ main {
 
     flex-direction: column;
     gap: 5em;
+    z-index: 0;
+}
+
+span, strong, p, h1, h2 {
+    color: var(--clr-text-primary);
 }
 
 .center-content {
@@ -60,11 +70,12 @@ main {
     align-items: center;
 }
 
+/* Page hero and decoration */
+
 .page-content-container {
     width: 100%;
     height: 80vh;
-    /*temporal*/
-    /*border: #0D0D0D solid 3px;*/
+    z-index: 0;
 }
 
 .page-content-container:nth-of-type(1) {
@@ -80,10 +91,9 @@ main {
     .page-hero-container::after {
         content: "";
         position: absolute;
-        background-color: var(--clr-bg-container-secondary);
+        background-color: var(--clr-bg-container-primary);
         width: 100%;
         height: 1em;
-        z-index: -1;
 }
 
 .page-hero-container::before {
@@ -107,7 +117,7 @@ main {
         background-size: clamp(250px, 50vw, 400px);
         width: 100%;
         height: 100%;
-        z-index: 1;
+        pointer-events: none;
 }
 
 .hero-content::before {
@@ -119,6 +129,29 @@ main {
     bottom: 0;
     right: 0;
     rotate: 180deg;
+}
+
+/* Buttons styles */
+
+button {
+    padding: 8px 20px;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    border: none;
+
+    font-family: var(--ff-patuaone);
+    font-size: var(--fs-regular);
+}
+
+.btn-opaque-background {
+    color: var(--clr-text-tertiary);
+    background-color: var(--clr-btn-background);
+}
+
+.btn-trasparent-background {
+    border: 1px solid var(--clr-btn-background);
+    color: var(--clr-text-primary);
 }
 
 /*----------------------------------------------------------------------------------------*/
@@ -137,7 +170,6 @@ main {
     
     font-family: var(--ff-italianno);
     font-size: var(--fs-xlarge);
-    color: var(--clr-text-primary);
 }
 
 .event-label {
@@ -165,8 +197,8 @@ main {
 }
 
 .event-number {
-    font-family: var(--ff-jacquesfrancoisshadow);
     color: var(--clr-text-secondary);
+    font-family: var(--ff-jacquesfrancoisshadow);
     text-transform: uppercase;
     font-weight: var(--fw-light);
 }
@@ -186,7 +218,6 @@ main {
     background-color: var(--clr-bg-container);
 
     text-align: center;
-    color: var(--clr-text-primary);
 
     padding: 3em;
 }
@@ -243,4 +274,23 @@ main {
 .location-container {
     width: 100%;
     height: 100%;
+
+    flex-direction: column;
+    gap: 2em;
+}
+
+.location-icon {
+    width: 8em;
+    border-radius: 50%;
+
+    background-color: var(--clr-bg-background-secondary);
+    padding: 10px;
+}
+
+.location-text {
+    font-size: var(--fs-regular);
+    font-family: var(--ff-oswald); 
+    font-weight: var(--fw-light);
+    text-align: center;
+    white-space: pre-line;
 }
