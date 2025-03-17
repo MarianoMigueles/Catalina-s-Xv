@@ -39,8 +39,7 @@ body {
 
     background-image: url(../../assets/images/page-background.webp);
     background-repeat: no-repeat;
-    background-size: cover;
-    
+    background-size: cover;  
 }
 
 header {
@@ -103,7 +102,6 @@ main {
     .hero-content::after {
         content: "";
         position: absolute;
-
         background-image: url(../../assets/images/hero-images-flowers.webp);
         background-repeat: no-repeat;
         background-size: clamp(250px, 50vw, 400px);
