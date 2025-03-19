@@ -59,6 +59,8 @@ body {
     z-index: -1;
 }
 
+/* loadig icon styles */
+
 body.loading {
     width: 100vw;
     height: 100vh;
@@ -71,16 +73,71 @@ body.loading {
 .page-loading {
     width: 100vw;
     height: 100vh;
-    display: flex;
+    flex-direction: column;
+    gap: 2em;
 }
 
-.page-loading > img {
-    width: 20vw;
+.page-loading > span {
+    font-family: var(--ff-patuaone);
+    font-size: var(--fs-medium);
 }
 
-header {
-
+.loading-icon {
+    position: relative;
+    width: 10em;
+    height: 10em;
+    border-radius: 50% / 50%;
+    border: 10px solid var(--clr-text-primary);
 }
+
+.loading-icon::before {
+    content: "";
+    position: absolute;
+    width: 12%;
+    height: 10%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--clr-bg-background-secondary);
+    border-radius: 50% / 50%;
+}
+
+.clock-hand {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.clock-hand::before, .clock-hand::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    width: 12%;
+    height: 40%;
+    background-color: var(--clr-bg-background-secondary);
+}
+
+.clock-hand::before {
+    transform: translateX(-50%);
+}
+
+.clock-hand::after {
+    transform-origin: left bottom;
+    transform: rotate(0deg) translateX(-50%);
+    animation: rotateClock 1S linear infinite;
+}
+
+@keyframes rotateClock {
+    0% {
+        transform: rotate(0deg) translateX(-50%);
+    }
+    100% {
+        transform: rotate(360deg) translateX(-50%);
+    }
+}
+
+/* main styles page */
 
 main {
     width: 100%;
