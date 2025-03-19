@@ -17,12 +17,12 @@
     --fs-xlarge: clamp(3.5rem, 15vw, 10rem);
     --fs-large: clamp(3.5rem, 10vw, 5.5rem);
     
-    --fs-medium-large: clamp(3rem, 7vw, 5rem);
+    --fs-medium-large: clamp(2.5rem, 7vw, 5rem);
     --fs-medium: clamp(2rem, 5vw, 4rem);
-    --fs-medium-small: clamp(1.5rem, 5vw, 3rem);
+    --fs-medium-small: clamp(1.7rem, 5vw, 3rem);
 
-    --fs-small-large: clamp(1.2rem, 4vw, 2.5rem);
-    --fs-small-medium: clamp(0.8rem, 3vw, 1.5rem);
+    --fs-small-large: clamp(1.5rem, 4vw, 2.5rem);
+    --fs-small-medium: clamp(1.3rem, 3vw, 1.5rem);
     --fs-small: clamp(0.5rem, 3vw, 1rem);
 
 
@@ -30,11 +30,15 @@
     --clr-text-primary: #EDAAA6;
     --clr-text-secondary: #eda9a680;
     --clr-text-tertiary: #F5F5EB;
+
     --clr-btn-background: #EDAAA6;
     --clr-bg-page: #FFFFFF;
     --clr-bg-container: #F5F5EB;
     --clr-bg-container-primary: #FBD0C9;
     --clr-bg-background-secondary: #EDAAA6;
+    --clr-bg-interface-bacground: #B26C6C40;
+
+    --clr-ts-shadows: 0 4px 4px rgba(0, 0, 0, 0.40);
 }
 
 * {
@@ -44,6 +48,8 @@
 }
 
 body {
+    position: relative;
+
     width: 100%;
     height: 100%;
 
@@ -114,7 +120,7 @@ p {
     height: 100vh;
 }
 
-.page-content-container:nth-last-of-type(2), .page-content-container:last-child {
+.page-content-container:last-child {
     height: 100%;
 }
 
@@ -193,6 +199,8 @@ button {
 
     font-family: var(--ff-patuaone);
     font-size: var(--fs-small-medium);
+
+    transition: transform 0.5s ease-in-out;
 }
 
 .btn-opaque-background {
@@ -203,6 +211,20 @@ button {
 .btn-trasparent-background {
     border: 1px solid var(--clr-btn-background);
     color: var(--clr-text-primary);
+}
+
+.btn-opaque-background:hover, .btn-trasparent-background:hover {
+    transform: scale(1.1);
+}
+
+/* display */
+
+.display {
+    display: flex;
+}
+
+.hidden {
+    display: none;
 }
 
 /*----------------------------------------------------------------------------------------*/
@@ -345,7 +367,7 @@ button {
     font-size: var(--fs-medium-large);
     font-family: var(--ff-playball);
     color: var(--clr-text-tertiary);
-    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.40);
+    text-shadow: var(--clr-ts-shadows)
 }
 
 /*----------------------------------------------------------------------------------------*/
@@ -358,8 +380,9 @@ button {
 }
 
 .confirm-attendance-container h2 {
-    font-size: var(--fs-medium);
+    font-size: var(--fs-medium-large);
     font-family: var(--ff-playball);
+    font-weight: var(--fw-light);
 }
 
 .confirm-attendance-container p {
@@ -378,11 +401,12 @@ button {
 /*----------------------------------------------------------------------------------------*/
 
 #pay-card-info-section {
-    display: none;
+    height: 100%;
 }
 
 .pay-card-info {
     width: fit-content;
+    max-width: 90vw;
     flex-direction: column;
     font-family: var(--ff-playball);
 
@@ -419,7 +443,7 @@ button {
 }
 
 .pay-metod > img {
-    width: 5em;
+    width: 20%;
 }
 
 .btn-pay-metod-text {
@@ -430,6 +454,44 @@ button {
     text-align: start;
 }
 
+/* Pay interface */
+
+.pay-interface {
+    width: 100%;
+    height: 100vh;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    background-color: var(--clr-bg-interface-bacground);
+}
+
+.pay-interface-content {
+    flex-direction: column;
+    gap: 2em;
+    font-family: var(--ff-oswald);
+}
+
+.pay-interface-content h2 {
+    font-family: var(--ff-patuaone);
+    font-size: var(--fs-medium-large);
+}
+
+.pay-interface-content p {
+    font-size: var(--fs-small-medium);
+    font-weight: var(--fw-light);
+}
+
+.pay-interface-content span {
+    font-size: var(--fs-small-medium);
+    font-weight: var(--fw-regular);
+}
+
+.number-container {
+    flex-direction: column;
+    gap: 0.5em;
+}
 
 /*----------------------------------------------------------------------------------------*/
 /*Present Section*/
@@ -440,47 +502,65 @@ button {
     height: 100%;
 
     flex-direction: column;
-    gap: 3em;
+    gap: 5em;
+
+    margin-bottom: 5vw;
 }
 
 .present-image-container > img {
+    width: 100%;
     max-width: 80vw;
     border-radius: 100px;
     background-color: var(--clr-bg-page);
 }
 
-.present-image-container > img {
-    width: 100%;
-}
-
-.present-content-container > h2, .present-content-container > p {
-    font-size: var(--fs-medium);
+.present-content-title > h2, .present-content-title > p {
+    font-size: var(--fs-medium-large);
     font-family: var(--ff-playball);
     color: var(--clr-text-tertiary);
     text-align: center;
-    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.40);
+    text-shadow: var(--clr-ts-shadows)
 }
 
-.present-content-container > p {
-    font-size: var(--fs-small-large);
+.present-content-title > p {
+    margin-top: 0.8em;
+    font-size: var(--fs-medium-small);
 }
 
 .pay-present-metod-container {
+    width: fit-content;
+    max-width: 80vw;
+    min-height: 60vh;
     flex-direction: column;
     background-color: var(--clr-bg-container);
-    border-radius: 50%;
-    gap: 1em;
+    border-radius: 70% / 70%;
+    gap: 2em;
+    font-family: var(--ff-oswald);
+    padding-bottom: 10vw;
 }
 
-.pay-present-metod-container > img {
+.pay-present-metod-title {
+    flex-direction: column;
 }
 
-.pay-present-metod-container > h3 {
-    font-size: var(--fs-medium);
-    font-weight: var(--fw-light);
+.pay-present-metod-title > img {
+    width: 30%;
+}
+
+.pay-present-metod-title > h3 {
+    font-size: var(--fs-medium-small);
+    font-weight: var(--fw-regular);
 }
 
 .pay-present-metod-container > p {
-    font-size: var(--fs-regular);
-    font-family: var(--ff-oswald); 
+    font-size: var(--fs-small-large);
+    font-family: var(--ff-oswald);
+    font-weight: var(--fw-light); 
+}
+
+.final-thanks {
+    font-family: var(--ff-playball);
+    font-size: var(--fs-medium-large);
+    color: var(--clr-text-tertiary);
+    text-shadow: var(--clr-ts-shadows);
 }
