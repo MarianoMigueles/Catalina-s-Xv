@@ -1,7 +1,13 @@
-const CELEBRATION_DATE = new Date(2025, 4, 3, 22);
+
 let timeOffset = new Date();
 
-export async function initClockStructure() {
+export function initClockStructure(eventDate, actualDate) {
+    const CELEBRATION_DATE = new Date(eventDate);
+    timeOffset = actualDate;
+    createClockStructure(CELEBRATION_DATE);
+}
+
+async function createClockStructure(celebrationDate) {
     const DATE_CONTAINER = document.querySelector('.time-indicator-container');
     const TIME_INDICATORS_LABELS = ['Dias', 'Horas', 'Minutos', 'Segundos'];
 
@@ -21,7 +27,7 @@ export async function initClockStructure() {
     const INDICATORS = DATE_CONTAINER.querySelectorAll('.time-indicator>strong');
 
     async function calculateClockTime(index) {
-        const DATE_DIFFERENCE = CELEBRATION_DATE - new Date()//getSynchronizedTime();
+        const DATE_DIFFERENCE = celebrationDate - new Date()//getSynchronizedTime();
 
         switch (index) {
             case 0: /*Days*/
@@ -39,7 +45,7 @@ export async function initClockStructure() {
 
     async function updateClockStructure(INDICATORS) {           
         INDICATORS.forEach( async (indicator, index) => {   
-            if(getSynchronizedTime() >= CELEBRATION_DATE) {
+            if(getSynchronizedTime() >= celebrationDate) {
                 clearInterval(INTERVAL);
                 indicator.innerHTML = "0";
                 return;
@@ -52,27 +58,11 @@ export async function initClockStructure() {
         });
     }
 
-    await getApiTime();
     await updateClockStructure(INDICATORS);
 
     const INTERVAL = setInterval(async () => {
         await updateClockStructure(INDICATORS);
     }, 1000);
-}
-
-async function getApiTime() {
-    try {
-        const LATITUDE = -33.0094;
-        const LONGITUDE = -58.5172;
-        const response = await fetch(`https://www.timeapi.io/api/Time/current/coordinate?latitude=${LATITUDE}&longitude=${LONGITUDE}`);
-        const data = await response.json();
-        const apiTime = new Date(data.dateTime);
-        const localTime = new Date();
-        timeOffset = apiTime.getTime() - localTime.getTime();
-    } catch (error) {
-        console.error("Error al obtener la hora de la API:", error);
-        timeOffset = new Date()
-    }
 }
 
 function getSynchronizedTime() {
