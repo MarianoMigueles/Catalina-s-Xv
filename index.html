@@ -10,58 +10,122 @@
     <script defer type="module" src="code/js/script.js"></script>
     <title>Catalina XV</title>
 </head>
-<body>
+<body class="loading">
     <header></header>
-    <main class="center-content">
-        <section class="page-content-container page-hero-container">
-            <div class="celebrant-content hero-content">
-                <div class="event-label">
-                    <div class="center-content event-number-container">
-                        <h1 class="event-number">xv</h1>
-                        <span class="event-year">Años</span>
-                    </div>             
-                    <h1 class="celebrant-name">Catalina</h1>
+    <div id="loading-container" class="page-loading center-content">
+        <img src="assets/svgs/clock.svg" alt="loading-icon">
+    </div>
+    <main>
+        <div class="center-content main-content">
+            <section class="page-content-container page-hero-container">
+                <div class="celebrant-content hero-content">
+                    <div class="event-label">
+                        <div class="center-content event-number-container">
+                            <h1 class="event-number">xv</h1>
+                            <span class="event-year">Años</span>
+                        </div>             
+                        <h1 class="celebrant-name">Catalina</h1>
+                    </div>           
+                </div>
+            </section>
+            <section class="center-content page-content-container">
+                <div class="center-content">
+                    <div class="date-container center-content card-container">
+                        <div>
+                            <h2>La fiesta es el</h2>
+                            <div class="calendar-date center-content">
+                                <span class="date-day">03</span>
+                                <span class="vertical-divider"></span>
+                                <span class="date-month">May</span>
+                                <span class="vertical-divider"></span>
+                                <span class="date-year">2025</span>
+                            </div>
+                        </div>
+                        <div class="clock-container">
+                            <img src="assets/svgs/clock.svg" alt="clock icon" class="clock-icon">
+                            <div class="time-indicator-container center-content"></div>
+                        </div>
+                    </div>     
+                </div>
+            </section>
+            <section class="page-content-container page-hero-container">
+                <div class="location-container hero-content center-content">
+                    <img src="assets/svgs/location.svg" alt="location icon" class="location-icon"/>
+                    <p class="location-text">Irazusta 2045
+                        Salon Betania
+                        (Ex Remanzo)</p>
+                    <a id="location-btn" target="_blank">
+                        <button class="btn-opaque-background">Ubicación</button>
+                    </a>
+                </div>
+            </section>
+            <section class="page-content-container center-content">
+                <p class="phrase-text">“Contamos con tu
+                presencia en esta noche
+                tan esperada”</p>
+            </section>
+            <section class="page-content-container page-hero-container">
+                <div class="confirm-attendance-container hero-content center-content">
+                    <div class="attendance-text-container center-content">
+                        <h2>Confirmar presencia</h2>
+                        <p>Te pedimos que nos confirmes
+                        antes del dia 7 de abril. </p>
+                    </div>
+                    <div class="attendance-btn-container center-content">
+                        <button id="btn-confirm-attendance" class="btn-trasparent-background">Asistire 😁</button>
+                        <button id="btn-decline-attendance" class="btn-trasparent-background">No podre asistir 😔</button>
+                    </div>
                 </div>           
-            </div>
-        </section>
-        <section class="center-content page-content-container"  p>
-            <div class="center-content">
-                <div class="date-container center-content">
-                    <div>
-                        <h1>La fiesta es el</h1>
-                        <div class="calendar-date center-content">
-                            <span class="date-day">03</span>
-                            <span class="vertical-divider"></span>
-                            <span class="date-month">May</span>
-                            <span class="vertical-divider"></span>
-                            <span class="date-year">2025</span>
+            </section>
+            <section id="pay-card-info-section" class="page-content-container center-content">
+                <div class="pay-card-info center-content card-container">
+                    <div class="pay-card-header center-content">
+                        <h2>Valor de la tarjeta</h2>
+                        <span>$ 25.000</span>
+                    </div>
+                    <div class="pay-card-body center-content">
+                        <h3>Incluye:</h3>
+                        <ul>
+                            <li>Servicio de lunch</li>
+                            <li>Cena</li>
+                            <li>Postre</li>
+                            <li>Barra de tragos</li>
+                            <li>Mesa dulce</li>
+                            <li>Desayuno</li>
+                        </ul>
+                    </div>
+                    <div class="pay-card-footer center-content">
+                        <h3>Modo de pago</h3>
+                        <div class="pay-metod center-content">
+                            <img src="assets/svgs/clock.svg" alt="mercado pago icon">
+                            <button id="btn-pay-metod" class="btn-pay-metod-text center-content">
+                                <span>Alias: cata.valen.aran</span>
+                                <span>Martin Facundo Aranda</span>
+                            </button>
                         </div>
                     </div>
-                    <div class="clock-container">
-                        <img src="assets/svgs/clock.svg" alt="clock icon" class="clock-icon">
-                        <div class="time-indicator-container center-content"></div>
+                </div>
+            </section>
+            <section class="page-content-container">
+                <div class="present-content-container center-content">
+                    <div class="present-image-container center-content">
+                        <img src="assets/images/present-image.webp" alt="present image">
                     </div>
-                </div>     
-            </div>
-        </section>
-        <section class="page-content-container page-hero-container">
-            <div class="location-container hero-content center-content">
-                <img src="assets/svgs/location.svg" alt="location icon" class="location-icon"/>
-                <p class="location-text">Irazusta 2045
-                    Salon Betania
-                    (Ex Remanzo)</p>
-                <button id="location-btn" class="btn-opaque-background">Ubicación</button>
-            </div>
-        </section>
-        <section class="page-content-container">
-
-        </section>
-        <section class="page-content-container page-hero-container">
-            <div class="location-container hero-content">            
-            </div>
-        </section>
-        <section class="page-content-container">
-        </section>
+                    <h2>¿Querés regalarme algo?</h2>
+                    <p>Aunque no es obligatorio
+                    ¡Todo es bienvenido!</p>
+                    <div class="pay-present-metod-container center-content">
+                        <img src="assets/assets/svgs/clock.svg" alt="mercado pago icon">
+                        <h3>Mercado Pago</h3>
+                        <p>Alias:
+                        whoiscatt
+                        A nombre de:
+                        Catalina Aranda</p>
+                    </div>
+                    <span>¡Gracias!</span>
+                </div>
+            </section>
+        </div>
     </main>
 </body>
 </html>
