@@ -1,0 +1,14 @@
+{
+    "app": {
+        "name": "Catalina's Xv",
+        "description": "Catalina's Xv is a web app that displays the date and time of the upcoming event.",
+        "version": "1.0.0",
+        "author": "Mariano Joel Migueles",
+        "github": "https://github.com/MarianoMigueles/Catalina-s-Xv.git",
+        "pageContent": {
+            "placeLocationUrl": "https://maps.app.goo.gl/NBDpRoxysTEdgd177",
+            "eventDate": "2025-05-03T22:00:00.000Z",
+            "phoneNumbers": [ "+543446324250" ]
+        }
+    }
+}
