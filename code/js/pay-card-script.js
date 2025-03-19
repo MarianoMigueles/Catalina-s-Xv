@@ -1,9 +1,9 @@
-export function initPayCardSection() {
+export function initPayCardSection(phoneOwnerName, phoneNumber) {
     const MAIN = document.querySelector('.main-content')
     const PAY_CARD_STRUCTURE = getPayCardStructure();
     const LAST_CHILD = MAIN.lastElementChild;
     MAIN.insertBefore(PAY_CARD_STRUCTURE, LAST_CHILD)
-    initCopyPayInformationBtn()
+    initCopyPayInformationBtn(phoneOwnerName, phoneNumber)
 }
 
 function getPayCardStructure() {
@@ -42,16 +42,16 @@ function getPayCardStructure() {
     return SECTION;
 }
 
-function initCopyPayInformationBtn() {
+function initCopyPayInformationBtn(phoneOwnerName, phoneNumber) {
     document.getElementById("btn-pay-metod").addEventListener("click", () => {
         const ALIAS = "cata.valen.aran";
         navigator.clipboard.writeText(ALIAS)
-        .then(() => addPayInterface())
+        .then(() => addPayInterface(phoneOwnerName, phoneNumber))
         .catch(err => console.error("Error al copiar: ", err));
     });
 }
 
-function addPayInterface() {
+function addPayInterface(phoneOwnerName, phoneNumber) {
     const DIV = document.createElement("div");
     DIV.classList.add("pay-interface", "center-content");
     DIV.innerHTML = `
@@ -59,8 +59,8 @@ function addPayInterface() {
             <h2>¡Copiado!</h2>
             <p>Alias coiado en el portapapeles, provafor, una vez hecha la tranferencia envia el comproante al siguiente numero:</p>
             <div class="number-container center-content">
-                <span>Mariano Migueles</span>
-                <span>+543446324250</span>
+                <span>${phoneOwnerName}</span>
+                <span>${phoneNumber}</span>
             </div>
             <button id="close-btn" class="btn-opaque-background">Cerrar</button>
         </div>
