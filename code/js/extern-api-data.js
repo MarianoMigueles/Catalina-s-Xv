@@ -1,6 +1,6 @@
 export async function getPageData() {
     try {
-        const response = await fetch('app-information.json');
+        const response = await fetch('../app-information.json');
         if (!response.ok) {
             throw new Error(`Error al cargar el archivo JSON: ${response.status}`);
         }
