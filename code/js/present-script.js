@@ -1,4 +1,4 @@
-import {copyTextIntoClipboard as copyPresentAlias} from "./script.js"
+import {copyTextIntoClipboard as copyPresentAlias, addCopyInterface as addPresentInterface} from "./script.js"
 
 export function initPresentSection() {
     initPresentBtn();
@@ -9,6 +9,10 @@ function initPresentBtn() {
     BTN.addEventListener("click", () => {
         const ALIAS = BTN.getAttribute("data-alias");
         copyPresentAlias(ALIAS);
-        alert("Alias copiado en el portapapeles");
+        const interfaseInfo = `
+            <p>Se ha copiado el alias en el portapapeles</p>
+            <span>Gracias por el regalo. ;)</span>
+        `
+        addPresentInterface(interfaseInfo);
     });
 }

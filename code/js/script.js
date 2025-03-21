@@ -46,3 +46,29 @@ document.addEventListener("DOMContentLoaded", async () => {
 export function copyTextIntoClipboard(text) {
     navigator.clipboard.writeText(text)
 }
+
+export function addCopyInterface(data) {
+    const DIV = document.createElement("div");
+    DIV.classList.add("pay-interface", "center-content");
+    DIV.innerHTML = `
+        <div class="copy-copy-interface-content card-container center-content">
+            <h2>¡Copiado!</h2>
+            <div class="copy-interface-content center-content">
+                ${data}
+            </div>
+            <button id="close-btn" class="btn-opaque-background">Cerrar</button>
+        </div>
+    ` 
+    const BODY = document.body;
+    BODY.style.overflow = 'hidden'
+    BODY.appendChild(DIV);
+
+    document.getElementById('close-btn').addEventListener("click", () => {
+        removePayInterface()
+    })
+}
+
+function removePayInterface() {
+    document.querySelector(".pay-interface").remove();
+    document.body.style.overflow = 'auto'
+}

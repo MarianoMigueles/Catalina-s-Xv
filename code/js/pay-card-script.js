@@ -1,4 +1,4 @@
-import {copyTextIntoClipboard as copyPayCardAlias} from "./script.js"
+import {copyTextIntoClipboard as copyPayCardAlias, addCopyInterface as addPayInterface} from "./script.js"
 
 export function initPayCardSection(phoneOwnerName, phoneNumber) {
     const MAIN = document.querySelector('.main-content')
@@ -49,34 +49,18 @@ function initOnClickPayInformationBtn(phoneOwnerName, phoneNumber) {
     BTN.addEventListener("click", () => {
         const ALIAS = BTN.getAttribute("data-alias");
         copyPayCardAlias(ALIAS);
-        addPayInterface(phoneOwnerName, phoneNumber);
+        openPayInterface(phoneOwnerName, phoneNumber);
     });
 }
 
-function addPayInterface(phoneOwnerName, phoneNumber) {
-    const DIV = document.createElement("div");
-    DIV.classList.add("pay-interface", "center-content");
-    DIV.innerHTML = `
-        <div class="pay-interface-content card-container center-content">
-            <h2>¡Copiado!</h2>
-            <p>Alias copiado en el portapapeles. Por favor, una vez hecha la tranferencia envia el comproante al siguiente numero:</p>
-            <div class="number-container center-content">
-                <span>${phoneOwnerName}</span>
-                <span>${phoneNumber}</span>
-            </div>
-            <button id="close-btn" class="btn-opaque-background">Cerrar</button>
+function openPayInterface(phoneOwnerName, phoneNumber) {
+    const interfaceData = `
+        <p>Alias copiado en el portapapeles. Por favor, una vez hecha la tranferencia envia el comproante al siguiente numero:</p>
+        <div class="number-container center-content">
+            <span>${phoneOwnerName}</span>
+            <span>${phoneNumber}</span>
         </div>
-    ` 
-    const BODY = document.body;
-    BODY.style.overflow = 'hidden'
-    BODY.appendChild(DIV);
-
-    document.getElementById('close-btn').addEventListener("click", () => {
-        removePayInterface()
-    })
+    `;
+    addPayInterface(interfaceData)
 }
 
-function removePayInterface() {
-    document.querySelector(".pay-interface").remove();
-    document.body.style.overflow = 'auto'
-}

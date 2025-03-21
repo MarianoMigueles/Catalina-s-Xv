@@ -528,25 +528,29 @@ button {
     background-color: var(--clr-bg-interface-bacground);
 }
 
-.pay-interface-content {
+.copy-copy-interface-content {
     flex-direction: column;
     gap: 2em;
     font-family: var(--ff-oswald);
 }
 
-.pay-interface-content h2 {
+.copy-copy-interface-content h2 {
     font-family: var(--ff-patuaone);
     font-size: var(--fs-medium-large);
 }
 
-.pay-interface-content p {
+.copy-copy-interface-content p {
     font-size: var(--fs-small-medium);
     font-weight: var(--fw-light);
 }
 
-.pay-interface-content span {
+.copy-copy-interface-content span {
     font-size: var(--fs-small-medium);
     font-weight: var(--fw-regular);
+}
+
+.copy-interface-content {
+    flex-direction: column;
 }
 
 .number-container {
