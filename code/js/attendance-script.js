@@ -1,11 +1,9 @@
 
-export function initAttendanceSection(phone) {
-    initConfirmAttendanceBtn(phone);
+export function initAttendanceSection(phone, acceptMessege, rejectionMessege) {
+    initConfirmAttendanceBtn(phone, acceptMessege, rejectionMessege);
 }
 
-function initConfirmAttendanceBtn(phone) {
-    let acceptMessege = "Hola, quiero más información";
-    let rejectionMessege = "Hola, no quiero más información";
+function initConfirmAttendanceBtn(phone, acceptMessege, rejectionMessege) {
     let url;
 
     document.getElementById("btn-confirm-attendance").addEventListener("click", function() { 

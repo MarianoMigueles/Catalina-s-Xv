@@ -23,11 +23,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     let name = URL_PARAMS.get("name");
     const ACTUAL_MEMBER = PAGE_DATA.members.find(member => member.name === name);
-    
+    const acceptMessege = PAGE_DATA.attendance.acceptMessege
+    const rejectionMessege = PAGE_DATA.attendance.rejectionMessege
+
     if(ACTUAL_MEMBER) {
-        initAttendanceSection(ACTUAL_MEMBER.phone);
+        initAttendanceSection(ACTUAL_MEMBER.phone, acceptMessege, rejectionMessege);
     } else {
-        initAttendanceSection(PAGE_DATA.members[0].phone);
+        initAttendanceSection(PAGE_DATA.members[0].phone, acceptMessege, rejectionMessege);
         name = PAGE_DATA.members[0].name
     }
 

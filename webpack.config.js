@@ -1,11 +1,18 @@
-// webpack.config.js
 const path = require('path');
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  entry: './code/js/script.js', // Tu archivo principal
+  entry: './code/JS/script.js',
   output: {
     filename: 'scripts.min.js',
-    path: path.resolve(__dirname, 'dist'), // Directorio de salida
+    path: path.resolve(__dirname, 'dist'),
   },
-  mode: 'production', // Modo de producción para minificación
+  mode: 'production',
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        { from: "index.html", to: "index.html" },
+      ],
+    }),
+  ],
 };

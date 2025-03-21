@@ -17,7 +17,11 @@
                     "name": "G",
                     "phone": "+543446649549"
                 } 
-            ]
+            ],
+            "attendance": {
+                "acceptMessege": "Felicidades!! Muchas gracias por invitarme. Les confirmo que voy a estar presente ese día para festejar los XV años de Catalina.",
+                "rejectionMessege": "Felicidades!! Muchas gracias por invitarme. Lamentablemente no voy a poder estar presente ese día, pero espero que lo disfruten mucho y feliz cumpleaños!!!"
+            }
         }
     }
 }
