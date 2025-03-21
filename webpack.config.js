@@ -12,7 +12,8 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         { from: "assets", to: "assets" },
-        { from: "index.html", to: "index.html" },    
+        { from: "index.html", to: "index.html" },
+        { from: "app-information.json", to: "app-information.json" },      
       ],
     }),
   ],
