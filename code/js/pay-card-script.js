@@ -1,4 +1,4 @@
-import {copyTextIntoClipboard} from "./script.js"
+import {copyTextIntoClipboard as copyPayCardAlias} from "./script.js"
 
 export function initPayCardSection(phoneOwnerName, phoneNumber) {
     const MAIN = document.querySelector('.main-content')
@@ -48,7 +48,7 @@ function initOnClickPayInformationBtn(phoneOwnerName, phoneNumber) {
     const BTN = document.getElementById("btn-pay-card-metod");
     BTN.addEventListener("click", () => {
         const ALIAS = BTN.getAttribute("data-alias");
-        copyTextIntoClipboard(ALIAS);
+        copyPayCardAlias(ALIAS);
         addPayInterface(phoneOwnerName, phoneNumber);
     });
 }

@@ -3,10 +3,18 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:js": "npx webpack",
+    "minify:css": "npx postcss code/css/styles.css -o dist/styles.min.css",
+    "minify": "npm run build:js && npm run minify:css"
   },
   "keywords": [],
-  "author": "",
+  "author": "Mariano Joel Migueles",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "cssnano": "^7.0.6",
+    "postcss-cli": "^11.0.1",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1"
+  }
 }
