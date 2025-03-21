@@ -3,6 +3,7 @@ import {initClockStructure} from "./clock-script.js"
 import {initLocationBtn} from "./location-script.js"
 import {initAttendanceSection} from "./attendance-script.js"
 import {initPayCardSection} from "./pay-card-script.js"
+import {initPresentSection} from "./present-script.js"
 
 document.addEventListener("DOMContentLoaded", async () => {
     const URL_PARAMS = new URLSearchParams(window.location.search);
@@ -32,8 +33,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (URL_PARAMS.has("is-pay-card-displayed")) {
         initPayCardSection(name, PAGE_DATA.members[0].phone);
-    }  
+    }
+    
+    initPresentSection()
 
     document.querySelector(".page-loading").style.display = "none";
     document.body.classList.remove("loading")
 });
+
+export function copyTextIntoClipboard(text) {
+    navigator.clipboard.writeText(text)
+}

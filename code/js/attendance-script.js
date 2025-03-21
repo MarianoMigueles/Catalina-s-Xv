@@ -4,11 +4,21 @@ export function initAttendanceSection(phone) {
 }
 
 function initConfirmAttendanceBtn(phone) {
-    console.log("phone:" + phone);
-    document.getElementById("btn-confirm-attendance").addEventListener("click", function() {
-        let numero = phone;
-        let mensaje = "Hola, quiero más información";
-        let url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;   
+    let acceptMessege = "Hola, quiero más información";
+    let rejectionMessege = "Hola, no quiero más información";
+    let url;
+
+    document.getElementById("btn-confirm-attendance").addEventListener("click", function() { 
+        url = getUrl(acceptMessege);
         window.open(url, "_blank");
     });
+
+    document.getElementById("btn-decline-attendance").addEventListener("click", function() {
+        url = getUrl(rejectionMessege);
+        window.open(url, "_blank");
+    });
+
+    function getUrl(messege) {
+        return `https://wa.me/${phone}?text=${encodeURIComponent(messege)}`;  
+    }
 }

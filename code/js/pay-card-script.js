@@ -1,9 +1,11 @@
+import {copyTextIntoClipboard} from "./script.js"
+
 export function initPayCardSection(phoneOwnerName, phoneNumber) {
     const MAIN = document.querySelector('.main-content')
     const PAY_CARD_STRUCTURE = getPayCardStructure();
     const LAST_CHILD = MAIN.lastElementChild;
     MAIN.insertBefore(PAY_CARD_STRUCTURE, LAST_CHILD)
-    initCopyPayInformationBtn(phoneOwnerName, phoneNumber)
+    initOnClickPayInformationBtn(phoneOwnerName, phoneNumber)
 }
 
 function getPayCardStructure() {
@@ -31,7 +33,7 @@ function getPayCardStructure() {
                         <h3>Modo de pago</h3>
                         <div class="pay-metod center-content">
                             <img src="assets/svgs/mercado-pago.svg" alt="mercado pago icon">
-                            <button id="btn-pay-metod" class="btn-pay-metod-text center-content">
+                            <button id="btn-pay-card-metod" class="btn-pay-metod-text center-content" data-alias="cata.valen.aran">
                                 <span>Alias: cata.valen.aran</span>
                                 <span>Martin Facundo Aranda</span>
                             </button>
@@ -42,12 +44,12 @@ function getPayCardStructure() {
     return SECTION;
 }
 
-function initCopyPayInformationBtn(phoneOwnerName, phoneNumber) {
-    document.getElementById("btn-pay-metod").addEventListener("click", () => {
-        const ALIAS = "cata.valen.aran";
-        navigator.clipboard.writeText(ALIAS)
-        .then(() => addPayInterface(phoneOwnerName, phoneNumber))
-        .catch(err => console.error("Error al copiar: ", err));
+function initOnClickPayInformationBtn(phoneOwnerName, phoneNumber) {
+    const BTN = document.getElementById("btn-pay-card-metod");
+    BTN.addEventListener("click", () => {
+        const ALIAS = BTN.getAttribute("data-alias");
+        copyTextIntoClipboard(ALIAS);
+        addPayInterface(phoneOwnerName, phoneNumber);
     });
 }
 
@@ -57,7 +59,7 @@ function addPayInterface(phoneOwnerName, phoneNumber) {
     DIV.innerHTML = `
         <div class="pay-interface-content card-container center-content">
             <h2>¡Copiado!</h2>
-            <p>Alias coiado en el portapapeles, provafor, una vez hecha la tranferencia envia el comproante al siguiente numero:</p>
+            <p>Alias copiado en el portapapeles. Por favor, una vez hecha la tranferencia envia el comproante al siguiente numero:</p>
             <div class="number-container center-content">
                 <span>${phoneOwnerName}</span>
                 <span>${phoneNumber}</span>

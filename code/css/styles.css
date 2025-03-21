@@ -25,7 +25,6 @@
     --fs-small-medium: clamp(1.3rem, 3vw, 1.5rem);
     --fs-small: clamp(0.5rem, 3vw, 1rem);
 
-
     /*Colors*/
     --clr-text-primary: #EDAAA6;
     --clr-text-secondary: #eda9a680;
@@ -156,7 +155,7 @@ span, strong, p, h1, h2, h3, li {
 
 p {
     text-align: center;
-    white-space: pre-line;
+    max-width: 50%;
 }
 
 .center-content {
@@ -410,6 +409,10 @@ button {
     padding: 10px;
 }
 
+.location-text-container {
+    flex-direction: column;
+}
+
 .location-text {
     font-size: var(--fs-small-medium);
     font-family: var(--ff-oswald); 
@@ -421,6 +424,7 @@ button {
 /*----------------------------------------------------------------------------------------*/
 
 .phrase-text {
+    max-width: 90%;
     font-size: var(--fs-medium-large);
     font-family: var(--ff-playball);
     color: var(--clr-text-tertiary);
@@ -571,7 +575,11 @@ button {
     background-color: var(--clr-bg-page);
 }
 
-.present-content-title > h2, .present-content-title > p {
+.present-content-title {
+    flex-direction: column;
+}
+
+.present-content-title > h2, .present-content-title > span {
     font-size: var(--fs-medium-large);
     font-family: var(--ff-playball);
     color: var(--clr-text-tertiary);
@@ -579,21 +587,20 @@ button {
     text-shadow: var(--clr-ts-shadows)
 }
 
-.present-content-title > p {
-    margin-top: 0.8em;
+.present-content-title > span {
     font-size: var(--fs-medium-small);
 }
 
 .pay-present-metod-container {
-    width: fit-content;
+    height: 30%;
     max-width: 80vw;
-    min-height: 60vh;
     flex-direction: column;
     background-color: var(--clr-bg-container);
     border-radius: 70% / 70%;
     gap: 2em;
     font-family: var(--ff-oswald);
-    padding-bottom: 10vw;
+    white-space:nowrap;
+    padding: 5% 0;
 }
 
 .pay-present-metod-title {
@@ -609,10 +616,12 @@ button {
     font-weight: var(--fw-regular);
 }
 
-.pay-present-metod-container > p {
+.pay-present-metod-text span {
+    width: 100%;
     font-size: var(--fs-small-large);
     font-family: var(--ff-oswald);
     font-weight: var(--fw-light); 
+    text-align: center;
 }
 
 .final-thanks {
