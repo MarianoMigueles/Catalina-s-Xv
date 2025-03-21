@@ -12,6 +12,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "copy-webpack-plugin": "^13.0.0",
     "cssnano": "^7.0.6",
     "postcss-cli": "^11.0.1",
     "webpack": "^5.98.0",
