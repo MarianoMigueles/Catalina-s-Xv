@@ -55,7 +55,7 @@ function initOnClickPayInformationBtn(phoneOwnerName, phoneNumber) {
 
 function openPayInterface(phoneOwnerName, phoneNumber) {
     const interfaceData = `
-        <p>Alias copiado en el portapapeles. Por favor, una vez hecha la tranferencia envia el comproante al siguiente numero:</p>
+        <p>Alias copiado en el portapapeles. Por favor, una vez hecha la transferencia envia el comprobante al siguiente numero:</p>
         <div class="number-container center-content">
             <span>${phoneOwnerName}</span>
             <span>${phoneNumber}</span>
